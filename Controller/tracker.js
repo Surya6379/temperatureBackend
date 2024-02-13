@@ -78,7 +78,8 @@ exports.registerUser = async (req, res) => {
 // 3. GET http://localhost:3000/users? emailId =< emailId >& password =< password >
 exports.loginUser = async (req, res) => {
   try {
-    const detail = await users.findOne({ userId: req.body.userId });
+    const detail = await users.findOne({ userID: req.body.userID});
+    console.log("login",detail)
     if (detail == null) {
       res.status(400).json({
         successFlag: false,
